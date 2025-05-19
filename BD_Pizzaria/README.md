@@ -1,32 +1,32 @@
-🍕 Projeto de Banco de Dados – Modelagem Pizzaria  
+# 🍕 Projeto de Banco de Dados – Modelagem Pizzaria  
 Este projeto consiste na modelagem, teste e implementação de um sistema de banco de dados relacional para gerenciamento de pedidos de pizza, clientes, cardápio, tamanhos e controle de vendas.
 
 ---
 
-📐 Etapas do Projeto
+## 📐 Etapas do Projeto
 
-1. 📊 Planejamento Conceitual  
+### 1. 📊 Planejamento Conceitual  
 O modelo conceitual foi idealizado com foco nos seguintes pontos:
 
 - Entidades principais: cliente, pizza, tamanho, pedido, catálogo e transação.  
 - Relacionamentos: cliente faz pedidos, pedido contém pizzas de tamanhos variados.  
 - Normalização dos dados para manter consistência.
 
-2. 📎 Validação Inicial  
+### 2. 📎 Validação Inicial  
 A estrutura lógica foi inicialmente esboçada para:
 
 - Simular inserções e cruzamentos de dados.  
 - Validar integridade e possíveis falhas.  
 - Confirmar os relacionamentos esperados antes da implementação no banco.
 
-3. ⚙️ Modelagem Física no MySQL Workbench  
+### 3. ⚙️ Modelagem Física no MySQL Workbench  
 A modelagem física e implementação foi feita via SQL com os seguintes objetivos:
 
 - Criação do banco `modelo_pizzaria`.  
 - Estrutura clara de chaves primárias e estrangeiras.  
 - Organização das tabelas com base nas regras de negócio de uma pizzaria.
 
-4. 🧱 Implementação SQL  
+### 4. 🧱 Implementação SQL  
 Criação do banco de dados e inserção de dados iniciais:
 
 - Tabelas: cliente, pizza, tamanho, pedido, catálogo, transação.  
@@ -35,7 +35,7 @@ Criação do banco de dados e inserção de dados iniciais:
 
 ---
 
-🗂️ Estrutura das Tabelas
+## 🗂️ Estrutura das Tabelas
 
 | Tabela     | Finalidade                                                               |
 |------------|--------------------------------------------------------------------------|
@@ -48,7 +48,7 @@ Criação do banco de dados e inserção de dados iniciais:
 
 ---
 
-💻 Funcionalidades e Consultas
+## 💻 Funcionalidades e Consultas
 
 - Listagem de pedidos com nome do cliente, valor e horário  
 - Visualização do catálogo de pizzas com tamanho e preço  
@@ -58,7 +58,7 @@ Criação do banco de dados e inserção de dados iniciais:
 
 ---
 
-🧪 Testes Realizados
+## 🧪 Testes Realizados
 
 - Inserção de dados realistas para clientes e pedidos  
 - JOINs entre tabelas para validação das relações  
@@ -67,7 +67,7 @@ Criação do banco de dados e inserção de dados iniciais:
 
 ---
 
-📚 Aprendizados
+## 📚 Aprendizados
 
 ✅ Implementação prática de um banco relacional funcional  
 ✅ Manipulação de dados com JOINs e funções agregadas  
@@ -76,7 +76,7 @@ Criação do banco de dados e inserção de dados iniciais:
 
 ---
 
-🚀 Possibilidades de Expansão
+## 🚀 Possibilidades de Expansão
 
 - Adição de tabela de funcionários para gestão de entregadores  
 - Inclusão de status do pedido (em preparo, entregue, cancelado)  
