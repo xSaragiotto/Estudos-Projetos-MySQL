@@ -4,6 +4,7 @@ Este projeto representa a modelagem, validação e implementação de um banco d
 
 📌 Projeto em constante evolução, com possibilidade de expansão para funcionalidades administrativas e integração com APIs externas. Ideal para fins acadêmicos e profissionais.
 
+### Esse projeto está com uma versão mais completa em desenvolvimento, focado na integração com PHP.
 ---
 
 ## 📐 Etapas do Projeto
