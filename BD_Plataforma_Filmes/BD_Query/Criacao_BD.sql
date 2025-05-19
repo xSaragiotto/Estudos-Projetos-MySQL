@@ -33,6 +33,8 @@ CREATE TABLE cliente (
     FOREIGN KEY (id_plano) REFERENCES plano(id_plano)
 );
 
+-- TRATAMENTO DA SENHA NO BACKEND EM PHP
+
 /* $senhaPura = 'minha_senha123';
 
 // Cria o hash seguro
