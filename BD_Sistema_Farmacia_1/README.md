@@ -1,63 +1,95 @@
-🖥️ Projeto SISTEMA_DE_FARMACIA_1.0
-Este projeto representa a modelagem, validação e implementação de um banco de dados relacional para um sistema de farmácia. Contempla cadastro de clientes, pedidos, produtos, fornecedores, controle de estoque, vendas, receitas médicas, convênios e gerenciamento de funcionários.
+# 💊 Projeto SISTEMA DE FARMÁCIA 1.0
 
-📐 Etapas do Projeto
-Planejamento Conceitual
-Entidades principais: cliente, pedido, lista_compra, remedio, produtos_fornecedor, fornecedor, estoque, venda, receita_medica, medico, convenio, funcionario.
-Relacionamentos: muitos-para-muitos entre pedidos e produtos, fornecedores e produtos, receitas e remédios.
-Normalização para evitar redundâncias.
-Validação visual do modelo no BRModelo.
+Este projeto representa a modelagem, validação e implementação de um banco de dados relacional para um sistema de farmácia. O sistema contempla o cadastro de clientes, funcionários, fornecedores, produtos, medicamentos, controle de estoque, vendas, pedidos, pagamentos, histórico de compras e estatísticas operacionais.
 
-Modelagem Física
-Implementação das tabelas no MySQL Workbench com definição de chaves primárias, estrangeiras e restrições.
-Uso de triggers para atualização automática de dados em tabelas relacionadas.
+📌 Projeto em constante evolução, com possibilidade de expansão para funcionalidades administrativas e integração com APIs externas. Ideal para fins acadêmicos e profissionais.
 
-🗂️ Estrutura das Tabelas
-Tabela	                Finalidade
-cliente	                Cadastro dos clientes da farmácia.
-pedido	                Registro dos pedidos realizados pelos clientes.
-lista_compra	        Associação dos itens comprados em um pedido.
-remedio	                Dados sobre os medicamentos disponíveis.
-produtos_fornecedor	    Associação entre os produtos e seus fornecedores.
-fornecedor	            Cadastro de fornecedores de produtos e medicamentos.
-estoque	                Controle de quantidade de produtos disponíveis.
-venda	                Registro das vendas realizadas.
-receita_medica	        Armazenamento de informações sobre receitas.
-medico	                Cadastro de médicos que emitem receitas.
-convenio	            Registro de convênios aceitos.
-funcionario	            Cadastro de funcionários da farmácia.
-cargo	                Cargos dos funcionários (ex: atendente, farmacêutico).
-pagamento	            Registro dos pagamentos efetuados.
-forma_pagamento	        Métodos de pagamento aceitos.
-caixa	                Controle de entradas e saídas do caixa.
-nota_fiscal	            Emissão de notas fiscais das vendas.
-fornecimento	        Histórico de fornecimento de produtos.
-validade_produto	    Controle de validade dos produtos em estoque.
+---
 
-⚙️ Funcionalidades e Consultas
-Consulta para verificar vendas por período, cliente e produto.
-Relatórios de estoque baixo e validade próxima.
-Consulta de histórico de compras por cliente.
-Relatório de fornecimento por fornecedor.
-Registro e acompanhamento de receitas médicas.
-Histórico de atendimento por funcionário.
-Relatórios de faturamento e formas de pagamento utilizadas.
+## 📐 Etapas do Projeto
 
-🧪 Testes Realizados
-Inserção de dados simulando clientes, pedidos e medicamentos.
-Consultas com múltiplos JOINs para cruzamento de informações.
-Testes de integridade referencial com foreign keys.
-Verificação do funcionamento das triggers para estoque e caixa.
+### Planejamento Conceitual
 
-📚 Aprendizados
-Modelagem de sistemas com múltiplas entidades e relacionamentos.
-Uso de triggers para manter dados sincronizados.
-Aplicação prática do BRModelo e MySQL Workbench.
-Desenvolvimento de consultas SQL complexas para relatórios.
+- Entidades principais: cliente, funcionário, fornecedor, produto, medicamento, pedido, pagamento, venda, compra, categoria, receita, estoque.
+- Relacionamentos: muitos-para-muitos entre produtos e pedidos; entre fornecedores e produtos.
+- Normalização: aplicação de 1FN, 2FN e 3FN para garantir consistência e integridade.
+- Ferramenta de modelagem: BRModelo.
 
-🚀 Possibilidades de Expansão
-Integração com API de pagamento e receita digital.
-Módulo de controle de lotes e rastreabilidade.
-Controle de ponto e folha de pagamento dos funcionários.
-Implementação de sistema de notificações por SMS ou app.
-Dashboard administrativo com gráficos de vendas, estoque e finanças.
+### Modelagem Física
+
+- Implementação das tabelas no MySQL Workbench.
+- Definição de chaves primárias e estrangeiras.
+- Criação de restrições (UNIQUE, NOT NULL, CHECK).
+- Triggers para controle automático de estoque e verificação de validade.
+
+---
+
+## 🗂️ Estrutura das Tabelas
+
+| Tabela                | Finalidade                                                                |
+|-----------------------|---------------------------------------------------------------------------|
+| cliente               | Armazena dados dos clientes da farmácia.                                  |
+| funcionario           | Cadastro de funcionários (atendentes, farmacêuticos, etc).                |
+| fornecedor            | Dados das empresas fornecedoras de produtos.                              |
+| produto               | Registro dos produtos (geral).                                            |
+| medicamento           | Subtipo de produto com controle especial (prescrição, validade).          |
+| categoria             | Classificação dos produtos (higiene, remédio, perfumaria, etc).           |
+| estoque               | Controle de quantidades disponíveis de cada produto.                      |
+| pedido                | Registra os pedidos realizados por clientes.                              |
+| item_pedido           | Associação entre pedidos e produtos (muitos-para-muitos).                 |
+| pagamento             | Informações sobre os pagamentos efetuados.                                |
+| venda                 | Histórico de vendas finalizadas.                                          |
+| forma_pagamento       | Métodos aceitos (dinheiro, cartão, PIX, etc).                             |
+| compra                | Registro de compras feitas junto aos fornecedores.                        |
+| item_compra           | Detalhes dos produtos adquiridos de fornecedores.                         |
+| receita               | Armazena prescrições associadas aos medicamentos vendidos.                |
+| validade_produto      | Controle de datas de validade por lote.                                   |
+| ajuste_estoque        | Registros de ajustes manuais no estoque.                                  |
+| historico_cliente     | Histórico de compras por cliente.                                         |
+| log_alteracoes        | Auditoria de alterações em registros sensíveis.                           |
+| estatisticas_vendas   | Dados analíticos sobre vendas e desempenho de produtos.                   |
+
+---
+
+## ⚙️ Funcionalidades e Consultas
+
+- Listagem de produtos por categoria, fornecedor e status de estoque.
+- Controle de estoque automático com triggers.
+- Histórico de vendas por cliente e por período.
+- Consultas de produtos próximos do vencimento.
+- Relatórios de faturamento diário/mensal.
+- Listagem de medicamentos vendidos com e sem receita.
+- Cálculo do ticket médio por cliente.
+- Análise de produtos mais vendidos por período.
+
+---
+
+## 🧪 Testes Realizados
+
+- Inserção de dados fictícios para simular funcionamento real.
+- Testes de integridade referencial entre tabelas.
+- Simulações de vendas e controle de estoque.
+- Validação de constraints e funcionamento das triggers.
+- Consultas SQL com múltiplos JOINs e subqueries.
+- Verificações de consistência com dados históricos.
+
+---
+
+## 📚 Aprendizados
+
+- Modelagem relacional com foco em negócios reais.
+- Aplicação de normalização e boas práticas de design.
+- Criação de triggers e procedures para automação.
+- Otimização de consultas SQL.
+- Uso do MySQL Workbench e BRModelo para documentação.
+- Organização e documentação para fins de portfólio.
+
+---
+
+## 🚀 Possibilidades de Expansão
+
+- Implementação de controle de acesso com níveis de usuário.
+- Integração com sistemas de gestão ERP ou APIs de farmácias.
+- Painel administrativo para visualização de métricas em tempo real.
+- Envio de notificações sobre estoque baixo ou validade próxima.
+- Módulo de recomendação de produtos com base no histórico de clientes.
