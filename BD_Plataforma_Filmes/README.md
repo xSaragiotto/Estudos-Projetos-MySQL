@@ -2,7 +2,7 @@
 
 Este projeto representa a modelagem, validação e implementação de um banco de dados relacional para uma plataforma de streaming de filmes, contemplando cadastro de clientes, planos, pagamentos, catálogo de filmes, atores, gêneros, avaliações e histórico de visualizações.
 
-## OBS: O Projeto por algum motivo ficou meio quebrado, então não faz muito sentido, mas funciona. O ideal é ser remodelado.
+### OBS: O Projeto por algum motivo ficou meio quebrado, então não faz muito sentido, mas funciona. O ideal é ser remodelado.
 ---
 
 ## 📐 Etapas do Projeto
