@@ -73,17 +73,6 @@ Após a criação das tabelas, os seguintes testes foram executados:
 - Teste de integridade referencial (foreign keys).
 - Atualizações e análises agregadas.
 
-## 📁 Organização de Arquivos
-
-BD_Hospital/
-├── BD_diagramas_Modelagem/
-│   └── brmodelo.png             # Imagem do modelo ER feito no BRModelo
-├── BD_Hospital/
-│   └── estrutura_excel.xlsx     # Planilha usada para simulação de dados
-├── BD_Query/
-│   └── modelagem_hospital.sql   # Script completo do banco (DDL + DML + SELECTs)
-├── README.md                    # Este arquivo
-
 ## 📚 Aprendizados
 
 ✅ Criação e teste de um sistema relacional realista  
