@@ -1,7 +1,7 @@
 # 🛒 Projeto BD_Logistica  
   Este projeto representa a modelagem, validação e implementação de um banco de dados relacional para controle logístico de produtos, fabricantes, fornecedores e lotes, visando rastreabilidade e gestão de estoque.
 
-$ 📐 Etapas do Projeto  
+# 📐 Etapas do Projeto  
   Planejamento Conceitual  
   - Entidades principais: fornecedor, fabricante, produto, lote.  
   - Relacionamentos: muitos-para-um entre lote e fabricante, lote e fornecedor, lote e produto.  
