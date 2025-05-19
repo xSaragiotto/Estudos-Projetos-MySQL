@@ -11,7 +11,7 @@ O modelo conceitual foi inicialmente idealizado no BRModelo para identificar:
 - Relacionamentos e cardinalidades.
 - Normalização para evitar redundâncias.
 
-🎨 O modelo E-R foi validado visualmente no BRModelo antes da implementação prática.
+🎨 O modelo EER foi validado visualmente no BRModelo antes da implementação prática.
 
 ### 2. 📎 Validação em Excel
 A estrutura das tabelas e os relacionamentos foram testados previamente no Excel para:
@@ -33,7 +33,7 @@ Após a validação conceitual e estrutural, o banco foi criado com SQL no MySQL
 
 ## 🗂️ Estrutura das Tabelas
 
-| Tabela                | Finalidade                                                                 |
+| Tabela                | Finalidade                                                                |
 |-----------------------|---------------------------------------------------------------------------|
 | medico                | Armazena dados dos médicos (CRM e nome).                                  |
 | responsavel           | Guarda os responsáveis legais pelos pacientes.                            |
@@ -46,26 +46,23 @@ Após a validação conceitual e estrutural, o banco foi criado com SQL no MySQL
 | historico_domiciliar  | Registro da ocupação de pacientes em camas.                               |
 
 ## 💻 Funcionalidades e Consultas
+Descrição
 
-| Consulta | Descrição |
-|---------|-----------|
-| Listagem de consultas com nome do médico e paciente |
-| Medicamentos administrados por paciente e médico responsável |
-| Histórico domiciliar com informações do quarto, cama e responsável |
-| Total de remédios utilizados por cada médico |
-| Quantidade de pacientes sob responsabilidade de cada responsável |
-| Custo total dos remédios por paciente |
+- Listagem de consultas com nome do médico e paciente |
+- Medicamentos administrados por paciente e médico responsável |
+- Histórico domiciliar com informações do quarto, cama e responsável |
+- Total de remédios utilizados por cada médico |
+- Quantidade de pacientes sob responsabilidade de cada responsável |
+- Custo total dos remédios por paciente |
 
 Exemplo de consulta SQL:
 
-```sql
 SELECT paciente.nome, SUM(remedio.valor) AS total_remedios
 FROM historico_medicamento
 JOIN consulta ON historico_medicamento.id_consulta = consulta.id_consulta
 JOIN paciente ON consulta.id_paciente = paciente.id_paciente
 JOIN remedio ON historico_medicamento.id_remedio = remedio.id_remedio
 GROUP BY paciente.nome;
-```
 
 ## 🧪 Testes Realizados
 
@@ -76,24 +73,9 @@ Após a criação das tabelas, os seguintes testes foram executados:
 - Teste de integridade referencial (foreign keys).
 - Atualizações e análises agregadas.
 
-## 📁 Organização de Arquivos
-
-```
-modelagem_hospital/
-├── modelagem_hospital.sql      # Script completo do banco (DDL + DML + SELECTs)
-├── brmodelo.png                # Imagem do modelo ER feito no BRModelo
-├── estrutura_excel.xlsx        # Planilha usada para simulação de dados
-├── README.md                   # Este arquivo
-```
-
 ## 📚 Aprendizados
 
 ✅ Criação e teste de um sistema relacional realista  
 ✅ Uso de ferramentas visuais (BRModelo, MySQL Workbench EER)  
 ✅ Aplicação de boas práticas de modelagem relacional  
-✅ Testes de integridade e performance com dados simulados  
-
-## 👨‍⚕️ Autor
-
-Desenvolvido por [Seu Nome]  
-Contato: [email/LinkedIn se quiser]
+✅ Testes de integridade e performance com dados simulados 
