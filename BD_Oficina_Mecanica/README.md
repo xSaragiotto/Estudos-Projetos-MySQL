@@ -1,44 +1,87 @@
+🏎️ Projeto de Banco de Dados – Modelagem de Oficina Mecânica  
+Este projeto consiste na modelagem, validação e implementação de um sistema de banco de dados relacional para gerenciamento de clientes, automóveis, peças, funcionários, consertos, pedidos e transações de uma oficina mecânica.
 
-# Projeto de Banco de Dados: Oficina de Consertos Automotivos
+📐 Etapas do Projeto  
 
-## Visão Geral
+1. 📊 Planejamento Conceitual  
+O modelo conceitual foi inicialmente desenvolvido no BRModelo para identificar:
 
-Este projeto tem como objetivo modelar, testar e implementar um banco de dados relacional para uma oficina de consertos automotivos. O sistema gerencia clientes, automóveis, funcionários, peças, pedidos e consertos.
+- Entidades e atributos principais (cliente, automóvel, pedido, funcionário, peça, conserto etc.).
+- Relacionamentos entre clientes e automóveis, pedidos e peças, funcionários e consertos.
+- Cardinalidades e integridade referencial.
+- Normalização dos dados para evitar redundâncias.
 
-## Etapas do Projeto
+🎨 O modelo EER foi validado visualmente no BRModelo antes da implementação física.
 
-### 1. Modelagem Conceitual (BRModelo)
-- Criado diagrama Entidade-Relacionamento (EER) usando BRModelo.
-- Entidades: Cliente, Automóvel, Peça, Pedido, Funcionário, Conserto, entre outras.
-- Relacionamentos: Transações de peças, peças usadas em consertos, automóveis por cliente, etc.
+2. 📎 Validação em Excel  
+As estruturas das tabelas e seus relacionamentos foram testadas previamente no Excel para:
 
-### 2. Testes em Planilha (Excel)
-- Simulação de dados inseridos nas tabelas foi realizada em Excel.
-- O objetivo foi verificar a integridade das relações antes da implementação real.
-- Os testes permitiram validar o funcionamento das chaves estrangeiras, cardinalidades e o cruzamento de dados.
+- Simular inserções e relacionamentos entre entidades.
+- Verificar integridade dos dados.
+- Antecipar inconsistências e problemas de estrutura.
 
-### 3. Modelagem Física (MySQL Workbench)
-- O modelo EER foi desenvolvido e convertido para modelo físico no MySQL Workbench.
-- Foram definidos os tipos de dados, restrições (NOT NULL, UNIQUE, FOREIGN KEY), e a normalização foi respeitada.
+3. ⚙️ Modelagem Física no MySQL Workbench (EER)  
+Foi realizado o modelo físico no MySQL Workbench com:
 
-### 4. Criação e População (SQL)
-- Banco de dados `oficina_modelagem` criado.
-- Tabelas definidas e populadas com dados de teste.
-- Execução de consultas SQL para validação da integridade e funcionalidade do banco.
+- Representação gráfica do modelo EER.
+- Definição de chaves primárias e estrangeiras.
+- Organização de entidades com o recurso de “Layer” para agrupamento lógico.
 
-## Funcionalidades Validadas com SQL
+4. 🧱 Implementação SQL  
+Com o modelo validado, a implementação SQL foi feita diretamente no SGBD:
 
-Consultas implementadas para:
-- Listar peças utilizadas por pedido.
-- Consultar nome de cliente e detalhes de automóveis.
-- Listar funcionários e seus respectivos consertos.
-- Exibir pedidos com valores totais e formas de pagamento.
-- Verificar clientes com automóveis de categorias específicas (e.g., Esportivo).
-- Obter estatísticas como total de peças por conserto e gasto por cliente.
-- Verificar quais funcionários não participaram de consertos.
+- Criação do banco: oficina_modelagem  
+- Tabelas implementadas:
 
-## Conclusão
+🗂️ Estrutura das Tabelas  
 
-O banco foi totalmente funcional com todas as validações de integridade e testes aplicados.
-A modelagem e consultas fornecem uma base sólida para gestão eficiente de uma oficina.
-O projeto pode ser expandido futuramente com controle de agendamentos, notas fiscais e mais relatórios.
+| Tabela            | Finalidade                                                  |
+|-------------------|-------------------------------------------------------------|
+| cliente           | Cadastro de clientes com nome e CPF.                        |
+| funcionario       | Registro de funcionários com dados de contato.              |
+| automovel         | Armazena automóveis e vínculo com clientes.                 |
+| modelo            | Detalhes do modelo de automóvel.                            |
+| cor               | Cores disponíveis para automóveis.                          |
+| categoria         | Categoria do automóvel (ex: SUV, Sedan, Hatch).             |
+| tipo_pagamento    | Meios de pagamento (cartão, pix, boleto etc.).              |
+| peca              | Cadastro de peças e valores.                                |
+| pedido            | Relaciona cliente, peça, forma de pagamento e valor.        |
+| transacao         | Detalha pagamentos de pedidos.                              |
+| conserto          | Dados dos consertos realizados por funcionários.            |
+| peca_conserto     | Ligação entre peças utilizadas e o conserto realizado.      |
+
+💻 Funcionalidades e Consultas  
+
+| Descrição                                                                 |
+|---------------------------------------------------------------------------|
+| Listagem de automóveis e seus donos                                       |
+| Consultas com JOIN entre pedidos e peças                                  |
+| Relatório de peças utilizadas em consertos                                |
+| Total de pedidos por cliente                                              |
+| Consertos feitos por funcionário                                          |
+| Consulta com soma de valores por pedido ou por peça                       |
+| Total de peças utilizadas por tipo de conserto ou por modelo de carro     |
+
+🧪 Testes Realizados  
+
+- Inserção de dados simulando cenários reais de oficina.
+- Consultas JOIN com múltiplas tabelas.
+- Agrupamentos com funções de agregação como SUM e COUNT.
+- Testes de integridade com foreign keys e valores nulos.
+- Atualizações e exclusões controladas com WHERE e JOINs.
+
+📚 Aprendizados  
+
+✅ Prática de modelagem relacional com múltiplas entidades  
+✅ Utilização de BRModelo e MySQL Workbench na criação do projeto  
+✅ Criação de relacionamentos complexos com integridade referencial  
+✅ Testes SQL com consultas realistas e operacionais  
+
+🚀 Possibilidades de Expansão do Projeto  
+
+- 📱 Módulo de agendamento online de serviços.  
+- 📈 Relatórios financeiros com análise mensal de faturamento.  
+- 📦 Controle de estoque de peças com alertas de baixa quantidade.  
+- 📧 Envio automático de e-mails para clientes sobre status de consertos.  
+- 🧰 Módulo de garantia de serviços e controle de revisões.  
+- 🔧 Integração com API de fabricantes para atualizações de peças e modelos.  
